@@ -10,6 +10,8 @@ import dds_viernes.ui.vm.MenuViewModel;
 
 public class MenuWindow extends Dialog<MenuViewModel> {
 		
+	private static final long serialVersionUID = 1L;
+
 	public MenuWindow(WindowOwner owner) {
 		super(owner, new MenuViewModel());
 	}
@@ -28,8 +30,7 @@ public class MenuWindow extends Dialog<MenuViewModel> {
 		.onClick(this::abrirDatos);
 		
 	}
-		
-
+	
 	public void abrirNotas() {
 		Dialog<?> dialog = new NotasWindow(this);
 		dialog.open();
@@ -42,10 +43,8 @@ public class MenuWindow extends Dialog<MenuViewModel> {
 		dialog.onAccept(() -> {});
 	}
 
-
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
-		// TODO Auto-generated method stub
 		
 	}
 }

@@ -5,7 +5,7 @@ import org.uqbar.arena.windows.Window;
 
 import dds_viernes.ui.windows.LoginWindow;
 
-public class LectorNotasApplication extends Application{
+public class LectorNotasApplication extends Application {
 
 	public static void main(String[] args) {		
 		new LectorNotasApplication().start();
