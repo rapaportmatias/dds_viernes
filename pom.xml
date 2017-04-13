@@ -15,13 +15,8 @@
 		<dependency>
 			<groupId>org.uqbar-project</groupId>
 			<artifactId>arena-jface</artifactId>
-<<<<<<< HEAD
-			<version>3.6.1</version>
-		</dependency>	
-=======
 			<version>3.5.1</version>
 		</dependency>		
->>>>>>> c3442ac5e25c403464b1a60052b9022b7d12a5c3
 		
 		<dependency>
 	        <groupId>org.uqbar-project</groupId>
