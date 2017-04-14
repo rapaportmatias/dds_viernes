@@ -2,9 +2,7 @@ package dds_viernes.ui.windows;
 
 import java.awt.Color;
 
-
 import org.uqbar.arena.layout.HorizontalLayout;
-import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -20,9 +18,11 @@ public class MenuWindow extends SimpleWindow<MenuViewModel>{
 
 	private Button notasButton;
 	private Button datosButton;
+	private WindowOwner parent;
 
 	public MenuWindow(WindowOwner parent) {
 		super(parent, new MenuViewModel());
+		this.parent = parent;
 	}
 
 	@Override
@@ -34,8 +34,6 @@ public class MenuWindow extends SimpleWindow<MenuViewModel>{
 		notasButton = new Button(izqPanel).setCaption("Ver Notas");
 		datosButton = new Button(izqPanel).setCaption("Actualizar Datos");
 		new Label(derPanel).setBackground(Color.PINK).setWidth(300).setHeight(200);
-		
-		
 	}
 	
 	public void abrirNotas() {
@@ -45,9 +43,9 @@ public class MenuWindow extends SimpleWindow<MenuViewModel>{
 	}
 	
 	public void abrirDatos() {
-		Dialog<?> dialog = new DatosWindow(this);
-		dialog.open();
-		dialog.onAccept(() -> {});
+		DatosWindow datosWindow = new DatosWindow(this.parent);
+		this.close();
+		datosWindow.open();
 	}
 
 	@Override
@@ -55,5 +53,4 @@ public class MenuWindow extends SimpleWindow<MenuViewModel>{
 		notasButton.onClick(this::abrirNotas);
 		datosButton.onClick(this::abrirDatos);
 	}
-	
 }
