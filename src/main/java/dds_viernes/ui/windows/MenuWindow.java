@@ -25,7 +25,7 @@ public class MenuWindow extends SimpleWindow<MenuViewModel> {
 		this.setTitle("Menu");
 		mainPanel.setLayout(new VerticalLayout());	
 		notasButton = new Button(mainPanel).setCaption("Ver notas");
-		new Button(mainPanel).setCaption("Actualizar datos");
+		datosButton = new Button(mainPanel).setCaption("Actualizar datos");
 	}
 	
 	public void abrirNotas() {
