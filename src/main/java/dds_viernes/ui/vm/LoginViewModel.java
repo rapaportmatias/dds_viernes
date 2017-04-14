@@ -11,20 +11,11 @@ public class LoginViewModel {
 		super();
 	}
 
-	// ********************************************************
-	// ** Acciones
-	// ********************************************************	
-	
-	// ********************************************************
-	// ** Atributos
-	// ********************************************************
-
 	public String getToken() {
 		return this.token;
 	}
 
-	public void setMillas(String token) {
+	public void setToken(String token) {
 		this.token = token;
 	}
-	
 }

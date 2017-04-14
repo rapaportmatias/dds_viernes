@@ -17,10 +17,12 @@ public class MenuWindow extends SimpleWindow<MenuViewModel> {
 	private Button notasButton;
 	private Button datosButton;
 	private WindowOwner parent;
+	private static MenuViewModel menuVM = new MenuViewModel();
 
-	public MenuWindow(WindowOwner parent) {
-		super(parent, new MenuViewModel());
+	public MenuWindow(WindowOwner parent, String token) {
+		super(parent, menuVM);
 		this.parent = parent;
+		menuVM.setToken(token);
 	}
 
 	@Override
@@ -32,25 +34,25 @@ public class MenuWindow extends SimpleWindow<MenuViewModel> {
 		izqPanel.setLayout(new VerticalLayout());
 		derPanel.setLayout(new VerticalLayout());
 		new Label(izqPanel).setText("Nombre:").setWidth(150);
-		new Label(izqPanel).setText("Aca va el nombre");
+		new Label(izqPanel).bindValueToProperty("nombre");
 		new Label(izqPanel).setText("Legajo:").setWidth(150);
-		new Label(izqPanel).setText("Aca va el legajo");
+		new Label(izqPanel).bindValueToProperty("legajo");
 		new Label(derPanel).setText("Apellido:").setWidth(150);
-		new Label(derPanel).setText("Aca va el apellido");
+		new Label(derPanel).bindValueToProperty("apellido");
 		new Label(derPanel).setText("Usuario Git:").setWidth(150);
-		new Label(derPanel).setText("Aca va el usuario");
+		new Label(derPanel).bindValueToProperty("usuarioGit");
 		notasButton = new Button(izqPanel).setCaption("Ver Notas");
 		datosButton = new Button(derPanel).setCaption("Actualizar Datos");
 	}
 
 	public void abrirNotas() {
-		NotasWindow notasWindow = new NotasWindow(this.parent);
+		NotasWindow notasWindow = new NotasWindow(this.parent, getMenuVM().getToken());
 		this.close();
 		notasWindow.open();
 	}
 
 	public void abrirDatos() {
-		DatosWindow datosWindow = new DatosWindow(this.parent);
+		DatosWindow datosWindow = new DatosWindow(this.parent, getMenuVM().getToken());
 		this.close();
 		datosWindow.open();
 	}
@@ -59,5 +61,9 @@ public class MenuWindow extends SimpleWindow<MenuViewModel> {
 	protected void addActions(Panel actionsPanel) {
 		notasButton.onClick(this::abrirNotas);
 		datosButton.onClick(this::abrirDatos);
+	}
+
+	public static MenuViewModel getMenuVM() {
+		return menuVM;
 	}
 }

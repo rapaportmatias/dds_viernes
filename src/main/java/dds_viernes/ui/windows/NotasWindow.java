@@ -16,10 +16,12 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 	
 	private Button returnButton;
 	private WindowOwner parent;
+	private static NotasViewModel notasVM = new NotasViewModel();
 
-	public NotasWindow(WindowOwner parent) {
-		super(parent, new NotasViewModel());
+	public NotasWindow(WindowOwner parent, String token) {
+		super(parent, notasVM);
 		this.parent = parent;
+		getNotasVM().setToken(token);
 	}
 
 	@Override
@@ -62,8 +64,12 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 	}
 
 	protected void abrirMenu() {
-		MenuWindow menuWindow = new MenuWindow(this.parent);
+		MenuWindow menuWindow = new MenuWindow(this.parent, getNotasVM().getToken());
 		this.close();
 		menuWindow.open();
+	}
+
+	public static NotasViewModel getNotasVM() {
+		return notasVM;
 	}
 }

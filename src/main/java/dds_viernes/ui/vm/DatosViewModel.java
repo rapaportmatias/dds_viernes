@@ -2,45 +2,55 @@ package dds_viernes.ui.vm;
 
 import org.uqbar.commons.utils.Observable;
 
+import dominio.Alumno;
+
 @Observable
 public class DatosViewModel {
 	
-	// TODO - esto esta mal, es solo para que funcione lo visual durante las pruebas
-	private String nombre;
-	private String apellido;
-	private String legajo;
-	private String usuarioGit;
+	private String token;
+	private Alumno alumno;
 	
-	
-	public String getNombre() {
-		return nombre;
+	public DatosViewModel() {
+		this.alumno = new Alumno();
 	}
 	
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		alumno.setNombre(nombre);
 	}
-	
-	public String getApellido() {
-		return apellido;
-	}
-	
+
 	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-	public String getLegajo() {
-		return legajo;
+		alumno.setApellido(apellido);
 	}
 	
 	public void setLegajo(String legajo) {
-		this.legajo = legajo;
+		alumno.setLegajo(legajo);
 	}
-	
-	public String getUsuarioGit() {
-		return usuarioGit;
-	}
-	
+
 	public void setUsuarioGit(String usuarioGit) {
-		this.usuarioGit = usuarioGit;
+		alumno.setUsuarioGit(usuarioGit);
+	}
+	
+	public String getNombre() {
+		return alumno.getNombre();
+	}
+
+	public String getApellido() {
+		return alumno.getApellido();
+	}
+	
+	public String getLegajo() {
+		return alumno.getLegajo();
+	}
+
+	public String getUsuarioGit() {
+		return alumno.getUsuarioGit();
 	}
 }

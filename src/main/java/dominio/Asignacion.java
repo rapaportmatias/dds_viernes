@@ -15,7 +15,7 @@ public class Asignacion {
 	}
 	
 	public void calificarAlAlumnoCon(String nota){
-		tarea.setNota(nota);
-		notas.add(tarea.getNota());
+		/*tarea.setNota(nota);
+		notas.add(tarea.getNota());*/
 	}
 }

@@ -18,10 +18,12 @@ public class DatosWindow extends SimpleWindow<DatosViewModel> {
 	
 	private WindowOwner parent;
 	private Button actualizar;
+	private static DatosViewModel datosVM = new DatosViewModel();
 	
-	public DatosWindow(WindowOwner parent) {
-		super(parent, new DatosViewModel());
+	public DatosWindow(WindowOwner parent, String token) {
+		super(parent, datosVM);
 		this.parent = parent;
+		datosVM.setToken(token);
 	}
 
 	@Override
@@ -64,8 +66,12 @@ public class DatosWindow extends SimpleWindow<DatosViewModel> {
 	}
 	
 	protected void abrirMenu() {
-		MenuWindow menuWindow = new MenuWindow(this.parent);
+		MenuWindow menuWindow = new MenuWindow(this.parent, getDatosVM().getToken());
 		this.close();
 		menuWindow.open();
+	}
+
+	public DatosViewModel getDatosVM() {
+		return datosVM;
 	}
 }

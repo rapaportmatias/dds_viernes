@@ -16,9 +16,10 @@ public class LoginWindow extends SimpleWindow<LoginViewModel> {
 
 	private Button ingresar;
 	WindowOwner parent;
+	private static LoginViewModel loginVM = new LoginViewModel();
 	
 	public LoginWindow(WindowOwner parent) {
-		super(parent, new LoginViewModel());
+		super(parent, loginVM);
 		this.parent = parent;
 	}
 	
@@ -39,8 +40,12 @@ public class LoginWindow extends SimpleWindow<LoginViewModel> {
 	}
 
 	public void abrirMenu() {
-		MenuWindow menuWindow = new MenuWindow(this.parent);
+		MenuWindow menuWindow = new MenuWindow(this.parent, loginVM.getToken());
 		this.close();
 		menuWindow.open();
+	}
+
+	public LoginViewModel getLoginVM() {
+		return loginVM;
 	}
 }
