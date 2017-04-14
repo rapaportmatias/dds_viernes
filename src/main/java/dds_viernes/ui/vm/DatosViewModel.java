@@ -1,5 +1,8 @@
 package dds_viernes.ui.vm;
 
+import org.uqbar.commons.utils.Observable;
+
+@Observable
 public class DatosViewModel {
 	
 	// TODO - esto esta mal, es solo para que funcione lo visual durante las pruebas
