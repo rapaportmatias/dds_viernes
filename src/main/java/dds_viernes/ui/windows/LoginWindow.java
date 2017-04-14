@@ -15,9 +15,11 @@ public class LoginWindow extends SimpleWindow<LoginViewModel> {
 	private static final long serialVersionUID = 1L;
 
 	private Button ingresar;
+	WindowOwner parent;
 	
 	public LoginWindow(WindowOwner parent) {
 		super(parent, new LoginViewModel());
+		this.parent = parent;
 	}
 	
 	@Override
@@ -37,7 +39,7 @@ public class LoginWindow extends SimpleWindow<LoginViewModel> {
 	}
 
 	public void abrirMenu() {
-		MenuWindow menuWindow = new MenuWindow(this);
+		MenuWindow menuWindow = new MenuWindow(this.parent);
 		this.close();
 		menuWindow.open();
 	}

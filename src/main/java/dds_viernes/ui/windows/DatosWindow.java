@@ -3,6 +3,7 @@ package dds_viernes.ui.windows;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
+
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
@@ -58,11 +59,11 @@ public class DatosWindow extends SimpleWindow<DatosViewModel> {
 		actualizar.onClick(this::actualizarDatos);
 	}
 
-	public void actualizarDatos() {
+	protected void actualizarDatos() {
 		this.abrirMenu();
 	}
 	
-	public void abrirMenu() {
+	protected void abrirMenu() {
 		MenuWindow menuWindow = new MenuWindow(this.parent);
 		this.close();
 		menuWindow.open();
