@@ -4,31 +4,28 @@ import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Dialog;
+import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import dds_viernes.ui.vm.MenuViewModel;
 
-public class MenuWindow extends Dialog<MenuViewModel> {
+public class MenuWindow extends SimpleWindow<MenuViewModel> {
 		
 	private static final long serialVersionUID = 1L;
 
-	public MenuWindow(WindowOwner owner) {
-		super(owner, new MenuViewModel());
+	private Button notasButton;
+	private Button datosButton;
+	
+	public MenuWindow(WindowOwner parent) {
+		super(parent, new MenuViewModel());
 	}
 
 	@Override
-	public void createContents(Panel mainPanel) {
+	protected void createFormPanel(Panel mainPanel) {
 		this.setTitle("Menu");
 		mainPanel.setLayout(new VerticalLayout());	
-		
-		new Button(mainPanel)
-		.setCaption("Ver notas")
-		.onClick(this::abrirNotas);
-		
-		new Button(mainPanel)
-		.setCaption("Actualizar datos")
-		.onClick(this::abrirDatos);
-		
+		notasButton = new Button(mainPanel).setCaption("Ver notas");
+		new Button(mainPanel).setCaption("Actualizar datos");
 	}
 	
 	public void abrirNotas() {
@@ -44,7 +41,8 @@ public class MenuWindow extends Dialog<MenuViewModel> {
 	}
 
 	@Override
-	protected void createFormPanel(Panel mainPanel) {
-		
+	protected void addActions(Panel actionsPanel) {
+		notasButton.onClick(this::abrirNotas);
+		datosButton.onClick(this::abrirDatos);
 	}
 }
