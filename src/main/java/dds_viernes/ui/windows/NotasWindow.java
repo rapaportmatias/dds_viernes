@@ -1,14 +1,20 @@
 package dds_viernes.ui.windows;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.tables.Column;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import dds_viernes.ui.vm.NotasViewModel;
+import dominio.Asignacion;
 
 public class NotasWindow extends SimpleWindow<NotasViewModel> {
 	
@@ -17,7 +23,8 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 	private Button returnButton;
 	private WindowOwner parent;
 	private static NotasViewModel notasVM = new NotasViewModel();
-
+	private ArrayList<Asignacion> asignaciones2;
+	
 	public NotasWindow(WindowOwner parent, String token) {
 		super(parent, notasVM);
 		this.parent = parent;
@@ -30,6 +37,21 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 		mainPanel.setLayout(new HorizontalLayout());
 		Panel verticalPanel = new Panel(mainPanel);
 		verticalPanel.setLayout(new VerticalLayout());
+		
+		//Table tableAsignacion = new Table<>(mainPanel, ArrayList<Asignacion>.class);
+		//tableAsignacion.bindItemsToProperty("asignaciones");
+		
+		
+		//Column<Asignacion> columnaFecha = new Column<Asignacion>(tableAsignacion);
+		//columnaFecha.bindContentsToProperty("asignaciones");
+		
+		
+		/*Column<Venta> columnaPrenda = new Column<Venta>(tableVentas);
+		columnaPrenda.setTitle("Prenda");
+		Column<Venta> columnaUnidades = new Column<Venta>(tableVentas);
+		columnaUnidades.setTitle("Prenda");	*/	
+		
+		
 		
 		Panel firstPanel = new Panel(verticalPanel);
 		firstPanel.setLayout(new HorizontalLayout());

@@ -4,13 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Asignacion {
-	Alumno alumno;
-	Tarea tarea;
-	public List<String> notas;
+	
+
+	public List<String> notas;	
+	private String descripcion;
+	private String titulo;
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 	
 	public Asignacion(Alumno alumno, Tarea tarea){
-		this.alumno = alumno;
-		this.tarea = tarea;
+
 		notas = new ArrayList<String>();
 	}
 	
