@@ -2,49 +2,60 @@ package dominio;
 
 public class Alumno {
 	
-	private String nombre;
-	private String apellido;
-	private String legajo;
-	private String usuarioGit;
+	private String first_name;
+	private String last_name;
+	private String code;
+	private String github_user;
+	private Asignacion[] assignments;
 	
 	public Alumno(String nombre, String apellido, String legajo, String usuarioGit){
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.legajo = legajo;
-		this.usuarioGit = usuarioGit;
+		this.first_name = nombre;
+		this.last_name = apellido;
+		this.code = legajo;
+		this.github_user = usuarioGit;
 	}
 	
-	public Alumno() {}
-
-	public String getNombre() {
-		return nombre;
+	public Alumno(Asignacion[] assignments) {
+		this.assignments = assignments;
 	}
 	
-	public String getApellido() {
-		return apellido;
+	public Alumno() {
+		
 	}
 
-	public String getLegajo() {
-		return legajo;
-	}
-
-	public String getUsuarioGit() {
-		return usuarioGit;
+	public String getFirst_name() {
+		return first_name;
 	}
 	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public String getLast_name() {
+		return last_name;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public String getCode() {
+		return code;
 	}
 
-	public void setLegajo(String legajo) {
-		this.legajo = legajo;
+	public String getGithub_user() {
+		return github_user;
+	}
+	
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
 	}
 
-	public void setUsuarioGit(String usuarioGit) {
-		this.usuarioGit = usuarioGit;
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setGithub_user(String github_user) {
+		this.github_user = github_user;
+	}
+
+	public Asignacion[] getAssignments() {
+		return assignments;
 	}
 }  

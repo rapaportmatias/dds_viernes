@@ -23,8 +23,7 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 	private Button returnButton;
 	private WindowOwner parent;
 	private static NotasViewModel notasVM = new NotasViewModel();
-	private ArrayList<Asignacion> asignaciones2;
-	
+
 	public NotasWindow(WindowOwner parent, String token) {
 		super(parent, notasVM);
 		this.parent = parent;
@@ -38,44 +37,17 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 		Panel verticalPanel = new Panel(mainPanel);
 		verticalPanel.setLayout(new VerticalLayout());
 		
-		//Table tableAsignacion = new Table<>(mainPanel, ArrayList<Asignacion>.class);
-		//tableAsignacion.bindItemsToProperty("asignaciones");
+		Table<Asignacion[]> assignmentsTable = new Table<>(verticalPanel, Asignacion[].class);
+		assignmentsTable.bindItemsToProperty("asignaciones");
 		
-		
-		//Column<Asignacion> columnaFecha = new Column<Asignacion>(tableAsignacion);
-		//columnaFecha.bindContentsToProperty("asignaciones");
-		
-		
-		/*Column<Venta> columnaPrenda = new Column<Venta>(tableVentas);
-		columnaPrenda.setTitle("Prenda");
-		Column<Venta> columnaUnidades = new Column<Venta>(tableVentas);
-		columnaUnidades.setTitle("Prenda");	*/	
-		
-		
-		
-		Panel firstPanel = new Panel(verticalPanel);
-		firstPanel.setLayout(new HorizontalLayout());
-		new Label(firstPanel).setText("Titulo/s:").setWidth(100);
-		new Label(firstPanel).setText("Nota/s:").setWidth(100);
-		new Label(firstPanel).setText("Aprobacion:").setWidth(100);
-		
-		Panel secondPanel = new Panel(verticalPanel);
-		secondPanel.setLayout(new HorizontalLayout());
-		new Label(secondPanel).setText("Era mas facil").setWidth(100);
-		new Label(secondPanel).setText("Era mas facil").setWidth(100);
-		new Label(secondPanel).setText("Era mas facil").setWidth(100);
-		
-		Panel thirdPanel = new Panel(verticalPanel);
-		thirdPanel.setLayout(new HorizontalLayout());
-		new Label(thirdPanel).setText("Era mas facil").setWidth(100);
-		new Label(thirdPanel).setText("Era mas facil").setWidth(100);
-		new Label(thirdPanel).setText("Era mas facil").setWidth(100);
-		
-		Panel fourthPanel = new Panel(verticalPanel);
-		fourthPanel.setLayout(new HorizontalLayout());
-		new Label(fourthPanel).setText("Era mas facil").setWidth(100);
-		new Label(fourthPanel).setText("Era mas facil").setWidth(100);
-		new Label(fourthPanel).setText("Era mas facil").setWidth(100);
+//		Column<Asignacion> idColumn = new Column<Asignacion>(assignmentsTable);
+//		idColumn.setTitle("Titulo").setFixedSize(100).bindContentsToProperty("title");
+//		
+//		Column<Asignacion> descriptionColumn = new Column<Asignacion>(assignmentsTable);
+//		idColumn.setTitle("Descripcion").setFixedSize(100);
+//		
+//		Column<Asignacion> gradeColumn = new Column<Asignacion>(assignmentsTable);
+//		idColumn.setTitle("Nota").setFixedSize(100).bindContentsToProperty("grades");
 		
 		returnButton = new Button(verticalPanel).setCaption("Volver");
 	}

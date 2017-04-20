@@ -1,38 +1,41 @@
 package dominio;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Asignacion {
 	
-
-	public List<String> notas;	
-	private String descripcion;
-	private String titulo;
+	private int id;
+	private String[] grades;	
+	private String description;
+	private String title;
 	
-	public String getDescripcion() {
-		return descripcion;
+	public int getId() {
+		return id;
 	}
 	
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
-	public String getTitulo() {
-		return titulo;
+	public String[] getGrades() {
+		return grades;
 	}
 	
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setGrades(String[] grades) {
+		this.grades = grades;
 	}
 	
-	public Asignacion(Alumno alumno, Tarea tarea){
-
-		notas = new ArrayList<String>();
+	public String getDescription() {
+		return description;
 	}
 	
-	public void calificarAlAlumnoCon(String nota){
-		/*tarea.setNota(nota);
-		notas.add(tarea.getNota());*/
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

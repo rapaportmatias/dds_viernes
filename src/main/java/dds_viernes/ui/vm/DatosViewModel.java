@@ -23,34 +23,34 @@ public class DatosViewModel {
 	}
 
 	public void setNombre(String nombre) {
-		alumno.setNombre(nombre);
+		alumno.setFirst_name(nombre);
 	}
 
 	public void setApellido(String apellido) {
-		alumno.setApellido(apellido);
+		alumno.setLast_name(apellido);
 	}
 	
 	public void setLegajo(String legajo) {
-		alumno.setLegajo(legajo);
+		alumno.setCode(legajo);
 	}
 
 	public void setUsuarioGit(String usuarioGit) {
-		alumno.setUsuarioGit(usuarioGit);
+		alumno.setGithub_user(usuarioGit);
 	}
 	
 	public String getNombre() {
-		return alumno.getNombre();
+		return alumno.getFirst_name();
 	}
 
 	public String getApellido() {
-		return alumno.getApellido();
+		return alumno.getLast_name();
 	}
 	
 	public String getLegajo() {
-		return alumno.getLegajo();
+		return alumno.getCode();
 	}
 
 	public String getUsuarioGit() {
-		return alumno.getUsuarioGit();
+		return alumno.getGithub_user();
 	}
 }

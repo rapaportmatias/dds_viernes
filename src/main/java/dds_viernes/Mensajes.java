@@ -32,7 +32,7 @@ public class Mensajes {
 	public ClientResponse putStudent(String token){
 		return Client.create()
 				.resource(RESOURCE)
-				.path(ASSIGNMENTS_PATH)
+				.path(STUDENT_PATH)
 				.header("Authorization", "Bearer " + token)
                 .accept(MediaType.APPLICATION_JSON)
                 .put(ClientResponse.class);
