@@ -38,4 +38,11 @@ public class Asignacion {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public String getLastGrade() {
+		if(grades.length == 0) {
+			return "No hay notas";
+		}
+		return grades[grades.length - 1];
+	}
 }

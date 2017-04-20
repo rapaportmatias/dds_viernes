@@ -1,5 +1,7 @@
 package dds_viernes.ui.vm;
 
+import java.util.ArrayList;
+
 import org.uqbar.commons.utils.Observable;
 
 import com.google.gson.Gson;
@@ -14,6 +16,10 @@ public class NotasViewModel {
 	private String token;
 	private Alumno alumno;
 	
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
 	public NotasViewModel() { }
 	
 	public String getToken() {
@@ -31,7 +37,11 @@ public class NotasViewModel {
 		Gson gson = new Gson();		alumno = gson.fromJson(respuesta, Alumno.class);
 	}
 	
-	public Asignacion[] getAsignaciones() {
-		return alumno.getAssignments();
+	public ArrayList<Asignacion> getAsignaciones() {
+		ArrayList<Asignacion> asignaciones = new ArrayList<>();
+		for(Asignacion asignacion : alumno.getAssignments()) {
+			asignaciones.add(asignacion);
+		}
+		return asignaciones;
 	}
 }

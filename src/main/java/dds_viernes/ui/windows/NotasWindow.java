@@ -37,17 +37,17 @@ public class NotasWindow extends SimpleWindow<NotasViewModel> {
 		Panel verticalPanel = new Panel(mainPanel);
 		verticalPanel.setLayout(new VerticalLayout());
 		
-		Table<Asignacion[]> assignmentsTable = new Table<>(verticalPanel, Asignacion[].class);
+		Table<Asignacion> assignmentsTable = new Table<>(verticalPanel, Asignacion.class);
 		assignmentsTable.bindItemsToProperty("asignaciones");
 		
-//		Column<Asignacion> idColumn = new Column<Asignacion>(assignmentsTable);
-//		idColumn.setTitle("Titulo").setFixedSize(100).bindContentsToProperty("title");
-//		
-//		Column<Asignacion> descriptionColumn = new Column<Asignacion>(assignmentsTable);
-//		idColumn.setTitle("Descripcion").setFixedSize(100);
-//		
-//		Column<Asignacion> gradeColumn = new Column<Asignacion>(assignmentsTable);
-//		idColumn.setTitle("Nota").setFixedSize(100).bindContentsToProperty("grades");
+		Column<Asignacion> idsColumn = new Column<Asignacion>(assignmentsTable);
+		idsColumn.setTitle("Titulo").setFixedSize(100).bindContentsToProperty("title");
+	
+		Column<Asignacion> descriptionsColumn = new Column<Asignacion>(assignmentsTable);
+		descriptionsColumn.setTitle("Descripcion").setFixedSize(200).bindContentsToProperty("description");
+		
+		Column<Asignacion> gradesColumn = new Column<Asignacion>(assignmentsTable);
+		gradesColumn.setTitle("Nota").setFixedSize(100).bindContentsToProperty("lastGrade");
 		
 		returnButton = new Button(verticalPanel).setCaption("Volver");
 	}
