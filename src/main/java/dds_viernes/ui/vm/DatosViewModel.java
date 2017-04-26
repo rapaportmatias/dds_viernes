@@ -2,6 +2,9 @@ package dds_viernes.ui.vm;
 
 import org.uqbar.commons.utils.Observable;
 
+import com.google.gson.Gson;
+
+import dds_viernes.Mensajes;
 import dominio.Alumno;
 
 @Observable
@@ -20,6 +23,13 @@ public class DatosViewModel {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+	
+	public void actualizarDatos() {
+		Mensajes mensajero = new Mensajes();
+		Gson gson = new Gson();
+		String input = gson.toJson(alumno);
+		mensajero.putStudent(token, input);
 	}
 
 	public void setNombre(String nombre) {

@@ -62,6 +62,7 @@ public class DatosWindow extends SimpleWindow<DatosViewModel> {
 	}
 
 	protected void actualizarDatos() {
+		datosVM.actualizarDatos();
 		this.abrirMenu();
 	}
 	

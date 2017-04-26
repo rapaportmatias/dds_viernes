@@ -29,12 +29,12 @@ public class Mensajes {
                 .get(ClientResponse.class);
 	}
 	
-	public ClientResponse putStudent(String token){
+	public ClientResponse putStudent(String token, String input){
 		return Client.create()
 				.resource(RESOURCE)
 				.path(STUDENT_PATH)
 				.header("Authorization", "Bearer " + token)
                 .accept(MediaType.APPLICATION_JSON)
-                .put(ClientResponse.class);
+                .put(ClientResponse.class, input);
 	}
 }
